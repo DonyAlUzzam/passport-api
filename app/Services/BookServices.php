@@ -35,7 +35,7 @@ class BookServices
 
     public function getDetailByID($id)
     {
-        $book = Book::with('category')->findOrFail($id);
+        $book = Book::with('category')->find($id);
         return $book;
     }
 
@@ -61,7 +61,6 @@ class BookServices
     public function delete($id)
     {
         $book = $this->getDetailByID($id);
-
         $book->delete();
 
         return $book;
@@ -75,7 +74,5 @@ class BookServices
         return $data;
 
     }
-
-
 
 }

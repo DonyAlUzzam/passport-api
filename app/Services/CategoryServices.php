@@ -35,7 +35,7 @@ class CategoryServices
 
     public function getDetailByID($id)
     {
-        $category = Category::findOrFail($id);
+        $category = Category::find($id);
         return $category;
     }
 
