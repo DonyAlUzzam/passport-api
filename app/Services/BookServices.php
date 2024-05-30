@@ -63,7 +63,6 @@ class BookServices
         $book = $this->getDetailByID($id);
 
         $book->delete();
-        // $book->save();
 
         return $book;
     }

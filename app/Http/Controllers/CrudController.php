@@ -153,8 +153,6 @@ class CrudController extends Controller
 
         $obj = $this->service->delete($request->id);
 
-        return ResponseJson::success([
-            'data' => $obj,
-        ], $this->generateMessage($obj, 'update'));
+        return ResponseJson::success(null, $this->generateMessage($obj, 'delete'));
     }
 }
