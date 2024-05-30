@@ -64,10 +64,10 @@ class BookController extends CrudController
     public function runValidationUpdate($request)
     {
         $validator = Validator::make($request->all(), [
-            'id'  => 'required|unique:books,id,'.$request->id.',id',
+            'id'  => 'required|exists:books,id',
             'title'  => 'required|string|max:250',
             'quantity' => 'required|integer',
-            'category_id' => 'required|integer',
+            'category_id' => 'required|exists:categories,id',
 
         ]);
 
@@ -77,7 +77,7 @@ class BookController extends CrudController
     public function runValidationDestroy($request)
     {
         $validator = Validator::make($request->all(), [
-            'id' => 'required|exists:books,id'
+            'id' => 'required|exists:books,id,deleted_at,NULL'
         ]);
 
         return $validator;

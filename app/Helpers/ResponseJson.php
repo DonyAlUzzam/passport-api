@@ -39,4 +39,24 @@ class ResponseJson
         ], $status);
     }
 
+    public static function forbidden($message = 'Error', $status = 403): JsonResponse
+    {
+        return response()->json([
+            'status' => 'error',
+            'status_code' => HttpStatusCodes::HTTP_FORBIDDEN,
+            'message' => $message,
+            'data' => null,
+        ], $status);
+    }
+
+    public static function notFound($message = 'Error', $status = 404): JsonResponse
+    {
+        return response()->json([
+            'status' => 'error',
+            'status_code' => HttpStatusCodes::HTTP_NOT_FOUND,
+            'message' => $message,
+            'data' => null,
+        ], $status);
+    }
+
 }

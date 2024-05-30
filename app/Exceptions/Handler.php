@@ -47,5 +47,12 @@ class Handler extends ExceptionHandler
                );
             }
         });
+
+        $this->renderable(function (\Spatie\Permission\Exceptions\UnauthorizedException $e, $request) {
+            return ResponseJson::forbidden(
+                'You Don`t have access!'
+           );
+        });
     }
+
 }

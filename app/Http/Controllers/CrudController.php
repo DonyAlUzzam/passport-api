@@ -91,12 +91,14 @@ class CrudController extends Controller
 
         $data = $this->service->getDetailByID($request->id);
 
-        return response()->json([
-            'error' => false,
-            'message' => 'Successfully',
-            'status_code' => HttpStatusCodes::HTTP_OK,
+        if($data==null){
+            return ResponseJson::notFound('Data Tidak Ada.');
+        }
+
+        return ResponseJson::success([
             'data' => $data,
-        ], HttpStatusCodes::HTTP_OK);
+        ]);
+
     }
 
     public function store(Request $request)
@@ -132,7 +134,6 @@ class CrudController extends Controller
     public function update(Request $request)
     {
         $validator = $this->runValidationUpdate($request);
-
         if ($validator->fails()) {
             return ResponseJson::error($validator->errors()->all()[0]);
         }
@@ -152,6 +153,7 @@ class CrudController extends Controller
         }
 
         $obj = $this->service->delete($request->id);
+        // dd($obj);
 
         return ResponseJson::success(null, $this->generateMessage($obj, 'delete'));
     }
