@@ -27,8 +27,9 @@ class AuthController extends Controller
      *              required={"name", "email", "password"},
      *              @OA\Property(property="name", type="string", example="John Doe"),
      *              @OA\Property(property="email", type="string", example="john@example.com"),
-     *              @OA\Property(property="password", type="string", format="password", example="password")
-     *          ),
+     *              @OA\Property(property="password", type="string", format="password", example="password"),
+     *             
+     *          )
      *      ),
      *       @OA\Response(
     *          response=200,

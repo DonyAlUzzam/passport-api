@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class CrudController extends Controller
 {
+    const USER_BY_ID = '/api/users/{id}';
     protected $service;
     protected $viewDirectorry;
 
@@ -56,15 +57,10 @@ class CrudController extends Controller
 
         $dataTable = $this->service->getDatatable($request, $meta);
 
-        // return response()->json([
-        //     'error' => false,
-        //     'message' => 'Successfully',
-        //     'status_code' => HttpStatusCodes::HTTP_OK,
-        //     'data' => $dataTable['data'],
-        //     'pagination' => $dataTable['meta']
-        // ], HttpStatusCodes::HTTP_OK);
         return ResponseJson::success($dataTable['data']);
     }
+
+   
 
     public function index(Request $request)
     {
