@@ -54,7 +54,7 @@
 2. **Access Documentation**
 
     ```bash
-    http://localhost:8000/api/documentation
+    http://localhost:8000/api-docs
     
 
 ## About Laravel
