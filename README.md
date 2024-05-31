@@ -7,6 +7,22 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Steps
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/DonyAlUzzam/passport-api
+2. cd passport-api
+3. composer install
+4. cp .env.example .env
+5. php artisan key:generate
+6. Setup Your DB
+7. php artisan migrate
+8. php artisan db:seed --class=RolesAndPermissionsSeeder
+9. php artisan serve
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
