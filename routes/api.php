@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\Book\BookController;
 use App\Http\Controllers\Book\CategoryController;
+use App\Http\Controllers\SwaggerController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +31,7 @@ use App\Http\Controllers\Book\CategoryController;
 //    
 // });
 
-
+Route::get('/api-docs.json', [SwaggerController::class, 'json']);
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 

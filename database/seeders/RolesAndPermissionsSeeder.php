@@ -16,7 +16,7 @@ class RolesAndPermissionsSeeder extends Seeder
      */
     public function run()
     {
-        $permissions = ['create book', 'edit book', 'delete book'];
+        $permissions = ['manage book', 'manage category'];
         
         foreach ($permissions as $permission) {
             Permission::create(['name' => $permission]);
@@ -27,17 +27,17 @@ class RolesAndPermissionsSeeder extends Seeder
         $role1->givePermissionTo(Permission::all());
 
         $role2 = Role::create(['name' => 'manager']);
-        $role2->givePermissionTo(['create book', 'edit book']);
+        $role2->givePermissionTo(['manage book']);
 
         $user = \App\Models\User::factory()->create([
-            'name' => 'Example User',
-            'email' => 'test@example.com',
+            'name' => 'Admin',
+            'email' => 'admin@example.com',
         ]);
         $user->assignRole($role1);
 
         $user = \App\Models\User::factory()->create([
-            'name' => 'Example Admin User',
-            'email' => 'admin@example.com',
+            'name' => 'Manager',
+            'email' => 'manager@example.com',
         ]);
         $user->assignRole($role2);
     }
