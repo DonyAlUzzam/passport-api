@@ -13,15 +13,49 @@
 
    ```bash
    git clone https://github.com/DonyAlUzzam/passport-api
-2. cd passport-api
-3. composer install
-4. cp .env.example .env
-5. php artisan key:generate
-6. Setup Your DB
-7. php artisan migrate
-8. php artisan db:seed --class=RolesAndPermissionsSeeder
-9. php artisan serve
+2. **Masuk ke direktori Project**
 
+    ```bash
+    cd passport-api
+3. **Install Composer**
+
+    ```bash
+    composer install
+4. **Copy .env**
+
+    ```bash
+    cp .env.example .env
+5. **Generate Key**
+
+    ```bash
+    php artisan key:generate
+6. **Setup Your DB**
+7. **Jalankan Migration**
+
+    ```bash
+    php artisan migrate
+8. **Jalankan Seeder**
+
+    ```bash
+    php artisan db:seed --class=RolesAndPermissionsSeeder
+
+9. **Jalankan Project**
+
+    ```bash
+    php artisan serve
+
+
+## API Documentation
+
+1. **Generate Swagger documentation**
+
+    ```bash
+    php artisan l5-swagger:generate
+2. **Access Documentation**
+
+    ```bash
+    http://localhost:8000/api/documentation
+    
 
 ## About Laravel
 
