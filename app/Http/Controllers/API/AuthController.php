@@ -10,7 +10,7 @@ use App\Helpers\ResponseJson;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Laravel\Passport\Token;
-
+use App\Http\Resources\UserResource;
    
 class AuthController extends Controller
 {
@@ -122,7 +122,7 @@ class AuthController extends Controller
             'token' => $token,
             'token_type' => 'Bearer',
             // 'expires_at' => $token->expires_at,
-            'user' => $user,
+            'user' => new UserResource($user),
         ], 'User logged in successfully.');
     }
 
