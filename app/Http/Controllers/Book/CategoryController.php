@@ -43,7 +43,7 @@ class CategoryController extends CrudController
      * @OA\Get(
      *      path="/categories/list",
      *      operationId="listCategory",
-     *      tags={"API Endpoints for Admin"},
+     *      tags={"API Endpoints"},
      *      summary="List Categories",
      *      description="Returns Categories data",
      *      security={{"bearerAuth":{}}},
@@ -64,35 +64,12 @@ class CategoryController extends CrudController
     *      )
      * )
     *
-     * @OA\Get(
-     *      path="/manager/categories/list",
-     *      operationId="listCategoryManager",
-     *      tags={"API Endpoints for Manager"},
-     *      summary="List Categories",
-     *      description="Returns Categories data",
-     *      security={{"bearerAuth":{}}},
-    *       @OA\Response(
-    *          response=200,
-    *          description="Success",
-    *          @OA\JsonContent(ref="#/components/schemas/ApiResponse")
-    *      ),
-    *      @OA\Response(
-    *          response=400,
-    *          description="Bad request",
-    *          @OA\JsonContent(ref="#/components/schemas/ApiErrorResponse")
-    *      ),
-    *       @OA\Response(
-    *          response=401,
-    *          description="Unauthorized",
-    *          @OA\JsonContent(ref="#/components/schemas/ApiErrorUnAuth")
-    *      )
-     * )
     *
     *
      * @OA\Get(
      *      path="/categories/find",
      *      operationId="findCategory",
-     *      tags={"API Endpoints for Admin"},
+     *      tags={"API Endpoints"},
      *      summary="Find a Category",
      *      description="Returns Category data",
      *      security={{"bearerAuth":{}}},
@@ -122,38 +99,6 @@ class CategoryController extends CrudController
     *      )
      * )
     *
-     * @OA\Get(
-     *      path="/manager/categories/find",
-     *      operationId="findCategoryManager",
-     *      tags={"API Endpoints for Manager"},
-     *      summary="Find a Category",
-     *      description="Returns Category data",
-     *      security={{"bearerAuth":{}}},
-     *     @OA\Parameter(
-    *         name="id",
-    *         in="query",
-    *         required=true,
-    *         description="ID Category",
-    *         @OA\Schema(
-    *             type="integer"
-    *         )
-    *     ),
-    *       @OA\Response(
-    *          response=200,
-    *          description="Success",
-    *          @OA\JsonContent(ref="#/components/schemas/ApiResponse")
-    *      ),
-    *      @OA\Response(
-    *          response=400,
-    *          description="Bad request",
-    *          @OA\JsonContent(ref="#/components/schemas/ApiErrorResponse")
-    *      ),
-    *       @OA\Response(
-    *          response=401,
-    *          description="Unauthorized",
-    *          @OA\JsonContent(ref="#/components/schemas/ApiErrorUnAuth")
-    *      )
-     * )
     */
 
     public function runValidationShow($request)
@@ -169,7 +114,7 @@ class CategoryController extends CrudController
      * @OA\Post(
      *      path="/categories/create",
      *      operationId="createCategory",
-     *      tags={"API Endpoints for Admin"},
+     *      tags={"API Endpoints"},
      *      summary="Create a new Category",
      *      description="Returns Category data",
      *      security={{"bearerAuth":{}}},
@@ -211,7 +156,7 @@ class CategoryController extends CrudController
     * @OA\Put(
     *      path="/categories/update",
     *      operationId="updateCategory",
-    *      tags={"API Endpoints for Admin"},
+    *      tags={"API Endpoints"},
     *      summary="Update a Category",
     *      description="Returns Category data",
     *      security={{"bearerAuth":{}}},
@@ -251,7 +196,7 @@ class CategoryController extends CrudController
      * @OA\Delete(
      *      path="/categories/delete",
      *      operationId="deleteCategory",
-     *      tags={"API Endpoints for Admin"},
+     *      tags={"API Endpoints"},
      *      summary="Delete a Category",
      *      security={{"bearerAuth":{}}},
      *     @OA\Parameter(
