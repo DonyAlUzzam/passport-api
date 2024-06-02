@@ -45,6 +45,7 @@ class BookServices
         $newBook = new Book();
         $newBook = $this->setContent($newBook, $request);
         $newBook->save();
+        $newBook = Book::with('category')->find($newBook->id);
 
         return $newBook;
     }
@@ -54,6 +55,7 @@ class BookServices
         $book = $this->getDetailByID($id);
         $book = $this->setContent($book, $request);
         $book->update();
+        $book = Book::with('category')->find($book->id);
 
         return $book;
     }

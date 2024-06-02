@@ -60,7 +60,10 @@ class AuthController extends Controller
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
         $success['token'] =  $user->createToken('Token')->accessToken;
-        $success['user'] =  $user;
+        $user->assignRole('manager');
+
+        $success['user'] =  new UserResource($user);
+
         return ResponseJson::success($success, 'User register successfully.');
     }
    
@@ -130,7 +133,7 @@ class AuthController extends Controller
      * @OA\Post(
      *      path="/assign-role",
      *      operationId="asign-role",
-     *      tags={"API Endpoints for Admin"},
+     *      tags={"Manage Role Permission"},
      *      summary="Asign user Role",
      *      description="Returns user data",
      *      security={{"bearerAuth":{}}},
@@ -195,7 +198,7 @@ class AuthController extends Controller
      * @OA\Post(
      *      path="/give-permission",
      *      operationId="give-permission",
-     *      tags={"API Endpoints for Admin"},
+     *      tags={"Manage Role Permission"},
      *      summary="Permission granted user.",
      *      description="Returns user data",
      *      security={{"bearerAuth":{}}},

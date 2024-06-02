@@ -36,7 +36,7 @@ Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware('auth:api')->group(function () {
-    Route::middleware(['role:admin'])->group(function () {
+    Route::middleware(['role:admin|manager'])->group(function () {
         Route::controller(BookController::class)->group(function(){
             Route::group(['prefix' => 'books'], function() {
                 Route::get('/list', 'index');
@@ -51,6 +51,13 @@ Route::middleware('auth:api')->group(function () {
             Route::group(['prefix' => 'categories'], function() {
                 Route::get('/list', 'index');
                 Route::get('/find', 'show');
+            });
+        });
+    });
+
+    Route::middleware(['role:admin'])->group(function () {
+        Route::controller(CategoryController::class)->group(function(){
+            Route::group(['prefix' => 'categories'], function() {
                 Route::post('/create', 'store');
                 Route::put('/update', 'update');
                 Route::delete('/delete', 'destroy');
@@ -61,27 +68,6 @@ Route::middleware('auth:api')->group(function () {
         Route::post('give-permission', [AuthController::class, 'givePermission']);
     });
 
-    Route::middleware(['role:manager'])->group(function () {
-        Route::group(['prefix' => 'manager'], function() {
-            Route::controller(BookController::class)->group(function(){
-                Route::group(['prefix' => 'books'], function() {
-                    Route::get('/list', 'index');
-                    Route::get('/find', 'show');
-                    Route::post('/create', 'store');
-                    Route::put('/update', 'update');
-                    Route::delete('/delete', 'destroy');
-                });
-            });
-            Route::controller(CategoryController::class)->group(function(){
-                Route::group(['prefix' => 'categories'], function() {
-                    Route::get('/list', 'index');
-                    Route::get('/find', 'show');
-                });
-            });
-        });
-        
-    });
-  
     Route::post('logout', [AuthController::class, 'logout']);
 
 });

@@ -14,7 +14,7 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'roles' => $this->getRoleNames()[0], // This method is called on the user instance
+            'roles' => $this->getRoleNames(), // This method is called on the user instance
         ];
     }
 }
